@@ -1,0 +1,117 @@
+﻿
+@model List<Pokemon>
+@inject Pokedex.Services.IPokemonDB PokemonDB
+@{
+
+    
+    string UserLoggedIn = Context.Session.GetString("IsLoggedIn");
+    string username = Context.Session.GetString("username");
+
+    var m = Model.FirstOrDefault();
+//    var typeColors = new Dictionary<string, string>
+//    {
+//        {"normal", "normal"},
+//        {"fire", "fire"},
+//        {"water", "water"},
+//        {"grass", "grass"},
+//        {"electric", "electric"},
+//        {"ice", "ice"},
+//        {"fighting", "fighting"},
+//        {"poison", "poison"},
+//        {"ground", "ground"},
+//        {"flying", "flying"},
+//        {"psychic", "psychic"},
+//        {"bug", "bug"},
+//        {"rock", "rock"},
+//        {"ghost", "ghost"},
+//        {"dark", "dark"},
+//        {"dragon", "dragon"},
+//        {"steel", "steel"},
+//        {"fairy", "fairy"}
+//    };
+}
+
+
+@if (Model != null)
+{
+      
+            @Html.Partial("_Search")
+                    <div class="detail-card @Model.FirstOrDefault().types.FirstOrDefault().type.name">
+                        
+                    <div class="card-img">
+            @if (UserLoggedIn == "true")
+            {
+                var userPokemonList = PokemonDB.GetPokemonForUser(username).Result;
+                bool isInPokemonList = userPokemonList.Any(p => p.id == Model.FirstOrDefault()?.id);
+                if (!isInPokemonList)
+                {
+                    <form asp-controller="User" asp-action="AddPokemonOnUser" asp-route-username="@username" asp-route-pokeInt="@Model.FirstOrDefault().id">
+                        <button class="add-pokemon-details btn-primary m-2" type="submit">Add @(Model.FirstOrDefault().name) to list</button>
+                    </form>
+                }
+                
+
+            }
+            @{
+
+                
+                if (@Model.FirstOrDefault()?.sprites.front_shiny_female != null)
+                {
+                    <img src="@Model.FirstOrDefault()?.sprites.front_shiny_female " />
+                }
+                if (@Model.FirstOrDefault()?.sprites.front_female != null)
+                {
+
+                    <img src="@Model.FirstOrDefault()?.sprites.front_female" />
+                }
+                if (@Model.FirstOrDefault()?.sprites.front_shiny != null)
+                {
+
+                    <img src="@Model.FirstOrDefault()?.sprites.front_shiny" />
+                }
+                if (@Model.FirstOrDefault()?.sprites.front_default != null)
+                {
+                    <img src="@Model.FirstOrDefault()?.sprites.front_default" />
+                }
+            }
+                                </div>
+
+                                
+                                <span>#@Model.FirstOrDefault().id</span> 
+                                <span>name: @Model.FirstOrDefault().name</span>
+                                <span>height: @Math.Floor(Convert.ToDouble(Model.FirstOrDefault()?.height)*0.10 * 100)cm </span>
+                                <span>type: @{
+                                        foreach(var type in @Model.FirstOrDefault().types)
+                                        {
+                                            
+                                            <form asp asp-controller="home" asp-action="GetListOfPokemonByType" asp-route-type="@type.type.url">
+                                                <button type="submit" class="(@type.type.name) ? @type.type.name +" " + "type" : "")">@type.type.name</button>
+                                            </form>
+                                        }
+
+
+                                             }
+                                </span>
+                                
+                                     <span>Stats: @{
+                                        foreach (var stats in @Model.FirstOrDefault().stats)
+                                        {
+                                            if (stats.effort > 0)
+                                                {
+                                                        <div class="border-top">EV : @stats.effort</div>  
+                                                        <div class="border-bottom">type : @stats.stat.name</div> 
+                                                }
+                                                                                                                                            
+                                        }
+
+                                    }
+                                </span>
+                                
+                               
+                                        
+                                </div>
+}
+else
+{
+            <div>zoeken leeg</div>
+}

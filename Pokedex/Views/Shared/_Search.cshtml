@@ -1,0 +1,39 @@
+﻿@model List<Pokemon>
+
+
+
+@if (Model != null)
+{
+
+    var m = Model.FirstOrDefault();
+    <form asp-controller="Home" asp-action="ZoekOpNummer">
+            <div class="form-group">
+                <label asp-for="@m.id" class="control-label">Search on Name or ID #</label>
+                <input asp-for="@m.id" class="form-control" name="id" type="text"/>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+    </form>
+    <form asp-controller="home" asp-action="GetMoveByNameOrID" method="get">
+        <label class="control-label">Search Moves by name or ID</label>
+        <input class="form-control" name="id" type="text" />
+        <button type="submit" class="btn btn-primary">Zoek Moves</button>
+    </form>
+
+
+
+
+}
+else
+{
+    <form asp-controller="home" asp-action="GetMoveByNameOrID" method="get">
+        <label class="control-label">Search Moves by name or ID</label>
+        <input class="form-control" name="id" type="text" />
+        <button type="submit" class="btn btn-primary">Zoek Moves</button>
+    </form>
+
+   
+}
+
+
+
+

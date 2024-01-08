@@ -1,0 +1,55 @@
+﻿
+@model Pokedex.Models.Type
+
+
+
+
+@if (Model != null)
+{
+    
+    <div class="typeList">
+
+        
+            
+                @foreach (var type in Enum.GetValues(typeof(PokemonType)))
+                {
+            <div class="typeFastAcess">
+                <form asp-controller="home" asp-action="GetListOfPokemonByType" asp-route-type="@type">
+                    
+                    <button type="submit">@type</button>
+                   
+                </form>
+                </div>
+                }
+
+    </div>
+    if (Model.pokemon != null)
+    {
+        <h1>@Model.name pokemon</h1>
+        <div class="listPokemonByTypeContainer">
+       @foreach (var pokemon in Model.pokemon)
+            {
+                
+            
+            string cleanURL = pokemon.pokemon.url.TrimEnd('/');
+            string[] urlParts = cleanURL.Split('/');
+            string lastPart = urlParts[urlParts.Length - 1];
+            int length = lastPart.Length;
+            @*string lastThreeNumbers = length >= 3 ? lastPart.Substring(length - 3) : lastPart;*@
+            <div>#@lastPart</div>
+
+                <form asp asp-controller="home" asp-action="zoekOpNummer" asp-route-id="@lastPart">
+                <button type="submit"><p>@pokemon.pokemon.name</p></button>
+            </form>
+
+
+            }
+        </div>
+    }
+
+}
+else
+{
+    <h1>Nothing</h1>
+}
+

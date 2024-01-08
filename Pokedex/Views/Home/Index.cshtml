@@ -1,0 +1,62 @@
+﻿
+@model List<Pokemon>
+@inject Pokedex.Services.IPokemonDB PokemonDB
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+
+<h1>Pokédex</h1>
+
+@{
+    string UserLoggedIn = Context.Session.GetString("IsLoggedIn");
+    string username = Context.Session.GetString("username");
+}
+@if (UserLoggedIn == "true")
+{
+    <p> hello, @username!</p>
+}
+
+@Html.Partial("_Search")
+
+<div class="pokemon-card-container">
+@foreach (var pokemon in Model)
+{
+    <div class="pokemon-card card-@pokemon.types.FirstOrDefault().type.name">
+        <span class="pokemon-card-number"> #@pokemon.id</span>
+            <a asp-controller="Home" asp-action="ZoekOpNummer" asp-route-id="@pokemon.id" class="pokemon-card-name">@pokemon.name</a>
+        <div>
+                @if (UserLoggedIn == "true")
+                {
+                    @*var userPokemonList = PokemonDB.GetPokemonForUser(username).Result;
+                    bool isInPokemonList = userPokemonList.Any(p => p.id == pokemon.id);
+                    if (!isInPokemonList)
+                    {
+                        <form asp-controller="User" asp-action="AddPokemonOnUser" asp-route-username="@username" asp-route-pokeInt="@pokemon.id">
+                            <button class="add-pokemon" type="submit">Add</button>
+                        </form>
+                    }*@
+                    
+                }
+            
+        </div>
+        <div class="pokemon-card-types">@foreach (var type in pokemon.types)
+                {
+                    <form asp-controller="Home" asp-action="GetListOfPokemonByType" asp-route-type="@type.type.url">
+                    <button type="submit" class="pokemon-card-type type-preview @{@type.type.name} ">
+                        
+                        @type.type.name
+                      
+                    </button>
+                    </form>
+                }</div>
+        <img class="pokemon-sprite" src="@pokemon.sprites.front_default"/>
+        
+    </div>
+    
+}
+</div>  
+
+
+
+
+

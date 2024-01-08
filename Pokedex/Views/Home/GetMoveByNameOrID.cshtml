@@ -1,0 +1,132 @@
+﻿@model Move
+
+@{
+    Pokedex.Models.Type? value = null;
+}
+
+<div class="MoveContainer">
+@{
+        
+    @Html.Partial("_Search", new List<Pokemon>())
+        <div class="MoveProperties" id="typeValue">
+    @if (Model != null)
+    {
+       
+                <h1>Move Data</h1>
+                var props = @Model.GetType().GetProperties();
+                
+                foreach (var prop in props)
+                {
+                    var propName = prop.Name;
+                    var propValue = prop.GetValue(Model);
+                    if (propValue != null)
+                    {
+                 if (propValue.GetType().IsClass && propValue.GetType() == typeof(Pokedex.Models.Type))
+                        {
+                            value = (Pokedex.Models.Type)propValue;
+                            <div class="@value.name">Type: @value.name</div>
+
+                           
+
+
+
+                        }
+                if (propValue.GetType().IsClass && propValue.GetType() != typeof(string))
+                {
+                    foreach (var subProp in propValue.GetType().GetProperties())
+                    {
+                        var subPropName = subProp.Name;
+                        var subPropValue = subProp.GetValue(propValue);
+                        
+                        if (subPropValue != null && subPropValue.GetType() != typeof(string))
+                        {
+                            if(subPropValue.ToString() != "0")
+                            {
+                                if (subPropValue.GetType() != typeof(MoveAilment))
+                                {
+                                    foreach (var ma in subPropValue.GetType().GetProperties())
+                                    {
+
+                                        var maValue = ma.GetValue(subPropValue);
+
+                                                if (maValue != null && (maValue.ToString() != "0" && maValue.ToString() != "none"))
+                                        {
+                                            <div class="MaContainer">
+                                                        <span class="MoveType{@ma.Name}">ailment type: </span>
+                                                        <div class="maValue">@maValue</div>
+                                            </div>
+                                        }
+
+
+                                    }
+                                }
+                                if (subPropValue.GetType() != typeof(MoveCategory))
+                                {
+                                    foreach (var mc in subPropValue.GetType().GetProperties())
+                                    {
+
+
+                                        var mcValue = mc.GetValue(subPropValue);
+
+                                        if (mcValue != null && (mcValue.ToString() != "0" && mcValue.ToString() != "none" ) )
+                                        {
+                                            <div class="MaContainer">
+                                                    <span>Category @mc.Name:</span>
+                                                    <div class="mcValue">@mcValue</div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                        
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                        
+                   
+                   
+                    @if (propValue.ToString() != "0")
+                                {
+                                <div class="PropMove">
+                                    @if (propName == "id")
+                                    {
+                                        <h4 class="propName">#</h4>
+                                        <div class="propValue">@propValue</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="propName">@propName :</div>
+                                        <div class="propValue">@propValue</div>
+                                    }
+                                    
+                                </div>
+                                }
+
+                                    
+                                
+                                
+                        
+                    
+                        
+                }
+            }    
+        }
+  
+
+       
+    }
+    else
+    {
+        <p>EMPTY</p>
+    }
+        </div>
+    }
+
+
+    <script>
+        var moveContainer = document.getElementById('typeValue');
+        moveContainer.classList.add('@(value != null ? value.name : "nope")');
+    </script>
+ 

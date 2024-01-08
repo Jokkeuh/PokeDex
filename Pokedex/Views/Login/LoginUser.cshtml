@@ -1,0 +1,20 @@
+﻿@model User
+@{
+    var username = Context.Session.GetString("username");
+    string UserLoggedIn = Context.Session.GetString("IsLoggedIn");
+}
+
+@if (Model == null)
+{
+    <p>Could not find the user or pw is wrong</p>
+    <form asp-action="Index" >
+        <button type="submit">try again</button>
+    </form>
+   
+}
+else
+{
+    <p>Welcome @Model.UserName</p>
+    <a asp-action="GetPokemonList" asp-controller="Login" asp-route-username="@(username)">Go to your saved pokemons.</a>
+    
+}

@@ -1,0 +1,479 @@
+html {
+  font-size: 14px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+.MoveContainer {
+    display: grid;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    width: 35rem;
+    padding: 15px;
+}
+.PropMove{
+    height: 6rem;
+    width: 15rem
+}
+
+.MoveProperties {
+    margin: 15px;
+    display: grid;
+    grid: max-content;
+    
+    max-height: 90rem;
+    max-width: 40rem;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.propName{
+    color: brown;
+    text-align:start;   
+}
+.propValue{
+    font-size: 30px;
+    text-align: left;
+    }
+.listPokemonByTypeContainer{
+    border: 1px solid black;
+    max-height: 40vh;
+    overflow-y: scroll;   
+    overflow-x:hidden;
+}
+.listPokemonByTypeContainer button {
+    border-style: none;
+    background: white;
+}
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-family:'Agency FB', sans-serif;
+    font-size: 24px;
+}
+.typeList {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-flow:dense;
+    width: 20rem;
+    height: 20rem;
+    border: 1px solid black;
+}
+.typeFastAcess {
+    padding: 5px;
+    max-width: 3rem;
+    border-style: none;
+}
+.typeFastAcess:hover button{
+    color: blue;
+}
+
+a:Hover {
+    color: blue;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+body {
+  margin-bottom: 60px;
+}
+.pokemon-card-name{
+    position: relative;
+    top: 4rem;
+}
+
+.pokemon-card-number{
+    position:relative;
+    left: 5rem;
+}
+.pokemon-card-container, .my-pokemon-list {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 50%;
+}
+
+.pokemon-sprite{
+    position: absolute;
+    
+}
+
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background: linear-gradient(#ffffff79, #c7c7c7)
+}
+.detail-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, #a5a5a5);
+    color: white;   
+    border-radius: 6px;
+}
+
+    .detail-card.grass, .card-grass {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        margin: auto;
+        padding: 1rem;
+        background: linear-gradient(white, #70c577);
+        color: black;
+        border-radius: 6px;
+    }
+    .detail-card.poison, .card-poison {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        margin: auto;
+        padding: 1rem;
+        background: linear-gradient(white, #3f015b);
+        color: black;
+        border-radius: 6px;
+    }
+.detail-card.bug, .card-bug {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        margin: auto;
+        padding: 1rem;
+        background: linear-gradient(white, #723213);
+        color: black;
+        border-radius: 6px;
+    }
+    .detail-card.steel, .card-steel {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        margin: auto;
+        padding: 1rem;
+        background: linear-gradient(white, #5d7eff);
+        color: black;
+        border-radius: 6px;
+    }
+.detail-car.dark, .card-dark {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        margin: auto;
+        padding: 1rem;
+        background: linear-gradient(white, black);
+        color: white;
+    border-radius: 6px;
+}
+.detail-card.fairy, .card-fairy {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, lightpink);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.ghost, .card-ghost{
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        margin: auto;
+        padding: 1rem;
+        background: linear-gradient(white, antiquewhite);
+        color: black;
+        border-radius: 6px;
+    }
+.detail-card.psychic, .card-psychic {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, purple);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.flying, .card-flying {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, lemonchiffon);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.rock, .card-rock {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, darkgrey);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.ground, .card-ground {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, darkgrey);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.fighting, .card-fighting {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, saddlebrown);
+    color: white;
+    border-radius: 6px;
+}
+.detail-card.ice, .card-ice {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, blue);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.electric, .card-electric {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, yellow);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.water, .card-water {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, deepskyblue);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.fire, .card-fire {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, firebrick);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.normal, .card-normal{
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, lightgrey);
+    color: black;
+    border-radius: 6px;
+}
+.detail-card.dragon, .card-dragon {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    padding: 1rem;
+    background: linear-gradient(white, #8e1313);
+    color: black;
+    border-radius: 6px;
+}
+
+        
+
+
+    .detail-card img {
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+        height: 120px;
+        width: 120px;
+    }
+
+.aantal-pokemon-list{
+    position: absolute;
+}
+
+.type {
+    text-align: center;
+    border: 1px solid black;
+    width: 5rem;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+
+.pokemon-card-name-details{
+    position: relative;
+    top: 10rem;
+
+}
+.pokemon-remove-details{
+   font-size: 10px;
+}
+
+.pokemon-remove-details {
+    position: relative;
+    left: 3rem;
+    top: -9rem;
+}
+.pokemon-card-types {
+    display:flex;
+}
+.type-preview {
+   
+    text-align: center;
+    border-radius: 5px;
+    margin: 0.25rem;
+    padding: 0.1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.fairy {
+    color: lightpink;
+    border: 1px solid lightpink;
+    background: #0000005f;
+}
+.steel {
+    color: steelblue;
+    border: 1px solid steelblue;
+}
+.dragon {
+    color: darkred;
+    border: 1px solid darkred;
+}
+.dark {
+    color: black;
+    border: 1px solid black;
+}
+.ghost {
+    color: black;
+    border: 1px solid antiquewhite;
+}
+.rock {
+    color: darkgrey;
+    border: 1px solid darkgrey;
+    background: #0000005f;
+}
+.bug {
+    color: darkolivegreen;
+    border: 1px solid darkolivegreen;
+
+}
+.psychic {
+    color: purple;
+    border: 1px solid purple;
+}
+.flying {
+    color: lemonchiffon;
+    border: 1px solid lemonchiffon;
+    background: grey;
+}
+.ground {
+    color: navajowhite;
+    border: 1px solid darkgrey;
+    background: #0000005f;
+}
+.fighting {
+    color: saddlebrown;
+    background: #ffffff81;
+    border: 1px solid saddlebrown;
+}
+.ice {
+    color: darkblue;
+    border: 1px solid white;
+}
+.electric {
+    color: yellow;
+    border: 1px solid yellow;
+    background: grey;
+}
+.water {
+    color: blue;
+    border: 1px solid deepskyblue;
+}
+.fire {
+    color: firebrick;
+    border: 1px solid firebrick;
+    background: yellow;
+}
+.normal {
+    color: grey;
+    border: 1px solid grey;
+}
+.grass {
+    color: green;
+    border: 1px solid green;
+    background: white;
+}
+.poison {
+    color: lightgreen;
+    border: 1px solid darkgreen;
+    background: purple;
+}
+
+/*cards*/
+
+
+.pokemon-card-name{
+    position: relative;
+    top: -2.5rem;
+}
+.add-pokemon {
+    border: none;
+    color: darkblue;
+    position: relative;
+    top: -4rem;
+    left: -4rem;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+    .add-pokemon:hover {
+        color: white;
+        background: steelblue;
+        
+    }
+    .add-pokemon:active {
+        color: white;
+        background: blue;
+    }
+.detail-card{
+
+}
+

@@ -1,0 +1,28 @@
+﻿@{
+    string UserLoggedIn = Context.Session.GetString("IsLoggedIn");
+    string username = Context.Session.GetString("username");
+}
+@model Task<List<Pokemon>>
+@{
+    List<Pokemon> pokemonList = await Model;
+}
+
+<div class="my-pokemon-list">
+    <p class="aantal-pokemon-list">aantal @pokemonList.Count</p>
+    
+    
+        @{
+                
+        foreach (var pokemon in pokemonList)
+        {
+            <div class="pokemon-card">
+                <a asp-controller="Home" asp-action="ZoekOpNummer" asp-route-id="@pokemon.id" class="pokemon-card-name-details">@pokemon.name</a>
+                <img src="@pokemon.sprites.front_default">
+                <form class="pokemon-remove-details" asp-action="RemovePokemonFromUser" asp-controller="User" asp-route-username="@username" asp-route-pokeInt="@pokemon.id"><button class="btn-danger" type="submit">Remove from list</button></form>
+            </div>
+        }
+       
+        }
+        
+    
+</div>
